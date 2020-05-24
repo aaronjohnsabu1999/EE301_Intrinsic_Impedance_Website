@@ -6,8 +6,12 @@
     <script type="text/javascript">
       LatexIT.add('p',true);
     </script>
-    <title>Dipole Antenna</title>
+    <title>Intrinsic Impedance</title>
     <style type="text/css" src="./css/styles.css"></style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
   </head>
   <body data-gr-c-s-loaded="true">
     <div id="MathJax_Message" style="display: none;"></div>
@@ -36,17 +40,15 @@
       <br>
     </div>
 
-    <img id="myImage1" width="45%" src="./images/Diam_Grap.jpg">
-    <img id="myImage2" width="45%" src="./images/Blank.jpg">
+    <img id="myImage1" width="32%" src="./images/Diam_Grap.jpg">
+    <img id="myImage2" width="32%" src="./images/Blank.jpg">
     <p   id="demo" style="font-size: 150%; color:#000000;">
       1. Carbon is the sixth element of the periodic table. It can take several forms such as graphite, diamond, C-60 etc.
       <br>
-      2. Each form, though similar in element, are different in the structural composition. This leads to variation in physical properties, such as conductivity $\sigma$, relative permeability $\mu_r$ and relative permittivity $\epsilon_r$.
+      2. Each form, though similar in element, are different in the structural composition. This leads to variation in physical properties, such as conductivity $\sigma$, relative permeability $\mu_r$ and relative permittivity \(\epsilon_r\).
       <br>
-      3. The intrinsic impedance of a material is given as: $ \sqrt\frac{j\omega\mu}{\sigma+j\omega\epsilon}. $
-      <br>
-      <br>
-      Navigate through the buttons to learn how the intrinsic impedance varies between diamond, graphite and vacuum. Since intrinsic impedance is complex number, the magnitude plot and the log magnitude plot have been provided.
+      3. The intrinsic impedance of a material is given as: \[ \sqrt\frac{j\omega\mu}{\sigma+j\omega\epsilon}. \]
+      Navigate through the buttons to learn how the intrinsic impedance varies between diamond, graphite and vacuum.
     </p>
 
     <script>
@@ -54,37 +56,43 @@
       {
         document.getElementById('myImage1').src = "./images/Diamond.png";
         document.getElementById('myImage2').src = "./images/Blank.jpg";
-        document.getElementById("demo").innerHTML =  " 1. Diamond is an insulator, with a conductivity of approximately 10<sup>-13</sup> Siemens. </br> 2. The low conductivity causes diamond to follow a graph almost parallel to that of vacuum. </br> 3. At low frequencies, the effet of the low conductivity comes into picture.";
+        demo = document.getElementById("demo");
+        demo.innerHTML =  " 1. Diamond is an insulator, with a conductivity of approximately 10<sup>-13</sup> Siemens. </br> 2. The low conductivity causes diamond to follow a graph almost parallel to that of vacuum. </br> 3. At low frequencies, the effet of the low conductivity comes into picture.";
         document.getElementById("demo1").style.color = "Red";
         document.getElementById("demo2").style.color = "#000099";
         document.getElementById("demo3").style.color = "Red";
         document.getElementById("demo4").style.color = "Red";
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, demo]);
       }
 
       function myfunction3()
       {
         document.getElementById('myImage1').src = "./images/Graphite.png";
         document.getElementById('myImage2').src = "./images/Graphite_17_22.png";
-        document.getElementById("demo").innerHTML =  " 1. Graphite is a weak conductor, with a conductivity of approximately 10<sup>6</sup> Siemens. </br> 2. This level of conductivity causes graphite to follow a graph which increases in magnitude for all natural frequencies. </br> 3. The graph grows to be parallel to that of vacuum (i.e., the effect of conductivity becomes minimal) around 10<sup>17</sup> rad m<sup>-1</sup>.";
+        demo = document.getElementById("demo");
+        demo.innerHTML =  " 1. Graphite is a weak conductor, with a conductivity of approximately 10<sup>6</sup> Siemens. </br> 2. This level of conductivity causes graphite to follow a graph which increases in magnitude for all natural frequencies. </br> 3. The graph grows to be parallel to that of vacuum (i.e., the effect of conductivity becomes minimal) around 10<sup>17</sup> rad m<sup>-1</sup>.";
         document.getElementById("demo1").style.color = "Red";
         document.getElementById("demo2").style.color = "Red";
         document.getElementById("demo3").style.color = "#000099";
         document.getElementById("demo4").style.color = "Red";
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, demo]);
       }
 
       function myfunction4()
       {
         document.getElementById('myImage1').src = "./images/Overall.png";
         document.getElementById('myImage2').src = "./images/Overall_17_22.png";
-        document.getElementById("demo").innerHTML = "1. Here, the magnitude of the intrinsic impedances of diamond and graphite are compared with the value of vacuum which is approximately 377 &#937 (5.93 &#937 in the log scale) </br> 2. While vacuum remains constant at 377 &#937, the value of diamond grows until it reaches a corner frequency of 10<sup>-6</sup> rad m<sup>-1</sup> and remains at a value of around 135 &#937. </br> 3. As seen earlier, the effect of conductivity in graphite is much more stronger as a result of which it flattens only around 10<sup>17</sup> rad m<sup>-1</sup> and remains at 106 &#937. </br>";
+        demo = document.getElementById("demo");
+        demo.innerHTML = "1. Here, the magnitude of the intrinsic impedances of diamond and graphite are compared with the value of vacuum which is approximately 377 &#937 (5.93 &#937 in the log scale) </br> 2. While vacuum remains constant at 377 &#937, the value of diamond grows until it reaches a corner frequency of 10<sup>-6</sup> rad m<sup>-1</sup> and remains at a value of around 135 &#937. </br> 3. As seen earlier, the effect of conductivity in graphite is much more stronger as a result of which it flattens only around 10<sup>17</sup> rad m<sup>-1</sup> and remains at 106 &#937. </br>";
         document.getElementById("demo1").style.color = "Red";
         document.getElementById("demo2").style.color = "Red";
         document.getElementById("demo3").style.color = "Red";
         document.getElementById("demo4").style.color = "#000099";
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, demo]);
       }
     </script>
 
-    <script type="text/javascript" src="./js/MathJax.js"></script>
+    <!-- <script type="text/javascript" src="./js/MathJax.js"></script>
     <script
       id="texAllTheThingsPageScript"
       type="text/javascript"
@@ -92,6 +100,6 @@
       inlinemath="[[&quot;$&quot;,&quot;$&quot;],[&quot;[;&quot;,&quot;;]&quot;]]"
       displaymath="[[&quot;$$&quot;,&quot;$$&quot;],[&quot;\\[&quot;,&quot;\\]&quot;]]"
       skiptags="[&quot;script&quot;,&quot;noscript&quot;,&quot;style&quot;,&quot;textarea&quot;,&quot;pre&quot;,&quot;code&quot;]">  
-    </script>
+    </script> -->
   </body>
 </html>
